@@ -1,5 +1,5 @@
 const apikey = `45d2b1974108dfa1128c4ce9991a1f56`;
-const city = 'london';
+const city = 'Bucharest';
 
 
 
@@ -8,7 +8,9 @@ window.addEventListener('load', ()=>{
     let lat;
     let temperatureDescription = document.querySelector('.temperature-description');
     let temperatureDegree = document.querySelector('.degree');
-    let locationTimezone = document.querySelector('.location-timezone')
+    let locationTimezone = document.querySelector('.location-timezone');
+    // let icon = document.querySelector('.icon');
+    // const tempdata = await apirequests.relevantData;
     
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position => {
@@ -34,7 +36,10 @@ window.addEventListener('load', ()=>{
                 temperatureDegree.textContent = temp;
                 temperatureDescription.textContent = main;
                 locationTimezone.textContent = country;
-                // figure out items
+                // figure out cons
+
+                // icon.src = `http://openweathermap.org/img/wn/${tempdata.weather[0].icon}@2x.png`;
+                // icon.setAttribute(`title`, tempdata.weather[0].description);
                
             });});
             
