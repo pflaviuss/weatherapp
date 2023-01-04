@@ -59,4 +59,5 @@ body {
   width: 8vw;
   font-size: 14px;
   border:solid aquamarine;
+  cursor:pointer;
 }

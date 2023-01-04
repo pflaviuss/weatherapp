@@ -1,5 +1,5 @@
 const apikey = `45d2b1974108dfa1128c4ce9991a1f56`;
-let city = "Constanta";
+let city = "Bratislava";
 let search = document.querySelector('.searchbar');
 let button = document.querySelector('.btn');
 
@@ -18,7 +18,7 @@ window.addEventListener('load', ()=>{
     
 
     // let weather = {
-    //     apikey:"45d2b1974108dfa1128c4ce9991a1f56",
+    //     apikey:`45d2b1974108dfa1128c4ce9991a1f56`,
     //     fetchWeather: function(city){
     //         fetch(
     //             `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apikey}&units=metric`
@@ -33,7 +33,7 @@ window.addEventListener('load', ()=>{
     //         const { speed} = data.wind;
     //         console.log(name, icon, description, temp, humidity, speed);
     //     }
-    // };
+    // }
 
 
 
@@ -46,7 +46,7 @@ window.addEventListener('load', ()=>{
             const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apikey}&units=metric`;
             fetch(api)
             .then(responses => {
-                return responses.json();
+                return respones.json();
             })
             .then(data =>{
                 console.log(data);
@@ -56,9 +56,11 @@ window.addEventListener('load', ()=>{
                 const {country} = data.sys;
                 document.querySelector(".chosen-location").innerText = city;
                 
-                document.querySelector(".btn").addEventListener("click", function (){
-                    api.search();
-                })
+                function submit() {
+                    document.querySelector(".btn").addEventListener("click", function (){
+                        api.search();}
+                        )
+                }
 
                 // set DOM elements from the API
 
