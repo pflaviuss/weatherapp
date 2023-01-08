@@ -1,10 +1,10 @@
 const apikey = `45d2b1974108dfa1128c4ce9991a1f56`;
-let city = "Bratislava";
-let search = document.querySelector('.searchbar');
+let city = 'Bratislava';
+let search = document.querySelector('[data-search]');
 let button = document.querySelector('.btn');
 
 
-
+ 
 window.addEventListener('load', ()=>{
     let long;
     let lat;
@@ -35,7 +35,7 @@ window.addEventListener('load', ()=>{
     //     }
     // }
 
-
+   
 
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position => {
@@ -45,8 +45,8 @@ window.addEventListener('load', ()=>{
             
             const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apikey}&units=metric`;
             fetch(api)
-            .then(responses => {
-                return respones.json();
+            .then(response => {
+                return response.json();//
             })
             .then(data =>{
                 console.log(data);
@@ -56,12 +56,31 @@ window.addEventListener('load', ()=>{
                 const {country} = data.sys;
                 document.querySelector(".chosen-location").innerText = city;
                 
-                function submit() {
-                    document.querySelector(".btn").addEventListener("click", function (){
-                        api.search();}
-                        )
-                }
+                // let searchBar = document.querySelector(".searchbar");        THIS MIGHT BE THE WIN
+                // let button = document.querySelector(".btn");
+                // let chosenLocation = document.querySelector(".chosen-location");
+                // button.addEventListener("click", () =>{
+                //     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchBar.value}&APPID=${apikey}&units=metric`)
+                //     .then((res) =>
+                //     res.json())
+                //     .then((res)=>
+                //     (chosenLocation.textContent = res.name))
+                //     .then((res)=>
+                //     (locationTimezone.textContent = res.country));
+                    
+                // });
+                // searchBar.value = city;
+                
 
+
+                // function submit() {
+                //     document.querySelector(".btn").addEventListener("click", function (){
+                //         search.TextContent = 
+                //         submit.search.textContent;
+                //         fetch(api);}
+                //         )
+                // }
+               
                 // set DOM elements from the API
 
                 temperatureDegree.textContent = temp;
@@ -80,6 +99,8 @@ window.addEventListener('load', ()=>{
                     document.querySelector('.icon').src='http://openweathermap.org/img/wn/11d@2x.png';
                 }if(temperatureDescription.textContent === 'Snow'){
                     document.querySelector('.icon').src='http://openweathermap.org/img/wn/13d@2x.png';
+                }if(temperatureDescription.textContent === 'Fog'){
+                    document.querySelector('.icon').src='http://openweathermap.org/img/wn/50d@2x.png';
                 }
                
                console.log(temperatureDescription.textContent);
