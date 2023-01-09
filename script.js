@@ -54,21 +54,25 @@ window.addEventListener('load', ()=>{
                 const {temp} = data.main;
                 const {main} = data.weather[0];
                 const {country} = data.sys;
-                document.querySelector(".chosen-location").innerText = city;
+                // document.querySelector(".chosen-location").innerText = city;
                 
-                // let searchBar = document.querySelector(".searchbar");        THIS MIGHT BE THE WIN
-                // let button = document.querySelector(".btn");
-                // let chosenLocation = document.querySelector(".chosen-location");
-                // button.addEventListener("click", () =>{
-                //     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchBar.value}&APPID=${apikey}&units=metric`)
-                //     .then((res) =>
-                //     res.json())
-                //     .then((res)=>
-                //     (chosenLocation.textContent = res.name))
-                //     .then((res)=>
-                //     (locationTimezone.textContent = res.country));
+                let searchBar = document.querySelector(".searchbar");        
+                let button = document.querySelector(".btn");
+                let chosenLocation = document.querySelector(".chosen-location");
+                button.addEventListener("click", () =>{
+                    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchBar.value}&APPID=${apikey}&units=metric`)
+                    .then((res) =>{
+                    return res.json()})
+                    .then(data =>{                  /// I AM CURRENTLY GENERATING THE DATA BUT CAN'T GET THE VALUES USING DOM MANIPULATION
+                        console.log(data)
+                    })
+                    .then((data)=>
+                    (chosenLocation.textContent = data.name))
+                    .then((data)=>
+                    (locationTimezone.textContent = data.country));
+                    console.log(err.res.data)
                     
-                // });
+                });
                 // searchBar.value = city;
                 
 
